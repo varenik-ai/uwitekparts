@@ -281,13 +281,18 @@ address { font-style: normal }
   width: 44px; height: 30px; flex-shrink: 0;
   border-radius: 4px; overflow: hidden;
   box-shadow: 0 2px 8px rgba(227,10,23,.35), 0 1px 3px rgba(0,0,0,.2);
-  animation: flagwave 3s ease-in-out infinite;
+  animation: flagwave 2s ease-in-out infinite;
   transform-origin: left center;
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0,.25));
 }
 @keyframes flagwave {
-  0%,100% { transform: skewY(0deg) scaleX(1) }
-  25%      { transform: skewY(.6deg) scaleX(1.01) }
-  75%      { transform: skewY(-.6deg) scaleX(.99) }
+  0%   { transform: skewY(0deg) scaleX(1) skewX(0deg) }
+  15%  { transform: skewY(1.8deg) scaleX(1.03) skewX(1deg) }
+  30%  { transform: skewY(-1.2deg) scaleX(0.98) skewX(-0.5deg) }
+  50%  { transform: skewY(2.2deg) scaleX(1.04) skewX(1.5deg) }
+  65%  { transform: skewY(-0.8deg) scaleX(0.97) skewX(-1deg) }
+  80%  { transform: skewY(1.5deg) scaleX(1.02) skewX(0.8deg) }
+  100% { transform: skewY(0deg) scaleX(1) skewX(0deg) }
 }
 
 .logo__words { display: flex; flex-direction: column }
