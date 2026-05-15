@@ -44,7 +44,7 @@
 <meta name="twitter:image" content="https://www.uwitekparts.com/images/og-preview.jpg">
 
 <!-- PRELOAD hero: критично для LCP / Core Web Vitals -->
-<link rel="preload" href="images/hero-bg.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="images/hero-bg.png" as="image" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -341,7 +341,7 @@ address { font-style: normal }
 /* ══════════════════════════════════════════════════════
    HERO
 
-   AI IMAGE PROMPT #1 — hero-bg.jpg (1920×1080px, 16:9):
+   AI IMAGE PROMPT #1 — hero-bg.png (1920×1080px, 16:9):
    ───────────────────────────────────────────────────────
    "Epic cinematic wide-angle photograph of a massive
    Komatsu D475A bulldozer at work in an enormous open-pit
@@ -363,7 +363,7 @@ address { font-style: normal }
   background:
     linear-gradient(130deg, rgba(13,27,42,.96) 0%,
       rgba(22,37,53,.86) 45%, rgba(13,18,24,.94) 100%),
-    url('images/hero-bg.jpg') center / cover no-repeat;
+    url('images/hero-bg.png') center / cover no-repeat;
 }
 .hero::before {
   content: ''; position: absolute; inset: 0; pointer-events: none;
@@ -427,7 +427,7 @@ address { font-style: normal }
 }
 
 /* Правая колонка — медиа-блок
-   AI IMAGE PROMPT #2 — hero-machine.jpg (900×680px, 4:3):
+   AI IMAGE PROMPT #2 — hero-machine.png (900×680px, 4:3):
    ─────────────────────────────────────────────────────────
    "Komatsu D475A-5 bulldozer, dramatic three-quarter
    front-left view, cinematic professional studio render.
@@ -504,7 +504,7 @@ address { font-style: normal }
 /*
   AI IMAGE PROMPTS для карточек марок (900×600px, 3:2):
 
-  KOMATSU — images/komatsu.jpg:
+  KOMATSU — images/komatsu.png:
   ─────────────────────────────────────────────────────
   "Komatsu D155A-6 bulldozer, clean product photography,
   three-quarter front-right view. Pure white-grey gradient
@@ -514,7 +514,7 @@ address { font-style: normal }
   No text. No logos on machine. Aspect ratio 3:2."
   ─────────────────────────────────────────────────────
 
-  CATERPILLAR — images/caterpillar.jpg:
+  CATERPILLAR — images/caterpillar.png:
   ─────────────────────────────────────────────────────
   "Caterpillar D9T bulldozer, dramatic side-angle view,
   clean product photography. Very pale grey neutral
@@ -525,7 +525,7 @@ address { font-style: normal }
   No text. No logos. Aspect ratio 3:2."
   ─────────────────────────────────────────────────────
 
-  LIEBHERR — images/liebherr.jpg:
+  LIEBHERR — images/liebherr.png:
   ─────────────────────────────────────────────────────
   "Liebherr PR764 Litronic bulldozer, clean product
   photography, three-quarter rear-right angle.
@@ -562,7 +562,7 @@ address { font-style: normal }
 
    AI IMAGE PROMPTS — галерея схем (900×675px, 4:3):
 
-   ХОДОВАЯ — images/parts-undercarriage.jpg:
+   ХОДОВАЯ — images/parts-undercarriage.png:
    ─────────────────────────────────────────────────────
    "Premium engineering exploded-view technical schematic
    of a bulldozer undercarriage assembly. Components:
@@ -575,7 +575,7 @@ address { font-style: normal }
    No text. Ultra-detailed. Aspect ratio 4:3."
    ─────────────────────────────────────────────────────
 
-   ГИДРАВЛИКА — images/parts-hydraulic.jpg:
+   ГИДРАВЛИКА — images/parts-hydraulic.png:
    ─────────────────────────────────────────────────────
    "Premium engineering exploded technical schematic of
    a bulldozer hydraulic system. Components: hydraulic
@@ -1075,7 +1075,7 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
         <!-- Правая колонка: медиа -->
         <div class="hero__media">
           <div class="hero__img-wrap">
-            <img src="images/hero-bg.jpg"
+            <img src="images/hero-bg.png"
                  alt="Бульдозер Komatsu в карьере — запчасти производства UWITEK, Анкара"
                  loading="eager" fetchpriority="high" width="900" height="675">
             <div class="hero__pills" aria-hidden="true">
@@ -1135,7 +1135,7 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
       <!-- KOMATSU -->
       <article class="bc">
         <div class="bc__img">
-          <img src="images/komatsu.jpg"
+          <img src="images/komatsu.png"
                alt="Бульдозер Komatsu D155 — запчасти для D65, D155, D275, D355, D375, D475"
                loading="lazy" width="900" height="600">
         </div>
@@ -1161,7 +1161,7 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
       <!-- CATERPILLAR -->
       <article class="bc">
         <div class="bc__img">
-          <img src="images/caterpillar.jpg"
+          <img src="images/caterpillar.png"
                alt="Бульдозер Caterpillar D9 — запчасти для D6, D8, D9, D10"
                loading="lazy" width="900" height="600">
         </div>
@@ -1186,7 +1186,7 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
       <!-- LIEBHERR -->
       <article class="bc">
         <div class="bc__img">
-          <img src="images/liebherr.jpg"
+          <img src="images/liebherr.png"
                alt="Бульдозер Liebherr PR764 — запчасти для PR754 и PR764"
                loading="lazy" width="900" height="600">
         </div>
@@ -1324,7 +1324,7 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
 
     <div class="about__grid">
       <div class="about__img">
-        <img src="images/factory.jpg"
+        <img src="images/factory.png"
              alt="Производственный завод UWITEK в Анкаре — запчасти для бульдозеров"
              loading="lazy" width="1200" height="900">
         <div class="about__badge">
