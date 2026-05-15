@@ -1601,12 +1601,7 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
             Активация: при первой отправке придёт письмо — нажмите ссылку подтверждения.
             После этого все заявки приходят на export@uwitekparts.com.
           -->
-          <form action="https://formsubmit.co/export@uwitekparts.com"
-                method="POST" id="cForm" novalidate>
-            <input type="hidden" name="_subject" value="Запрос запчастей с uwitekparts.com">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://www.uwitekparts.com/#contact">
-            <input type="hidden" name="_template" value="table">
+          <form id="cForm" novalidate>
 
             <div class="row2">
               <div class="field">
@@ -1652,9 +1647,9 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
                         required></textarea>
             </div>
 
-            <button class="btn btn-a" type="submit"
+            <button class="btn btn-a" type="button" id="cFormBtn"
                     style="width:100%;margin-top:4px">
-              Отправить запрос
+              <span id="cFormBtnText">Отправить запрос</span>
             </button>
           </form>
 
@@ -1779,24 +1774,91 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// ── Успешная отправка формы ──────────────────────────────────────────────
-// formsubmit.co возвращает пользователя на _next (/#contact).
-// Проверяем реферер и показываем сообщение.
-window.addEventListener('load', () => {
-  if (window.location.hash === '#contact' &&
-      document.referrer.includes('formsubmit.co')) {
-    const f = document.getElementById('cForm');
-    const ok = document.getElementById('fOk');
-    if (f) f.style.display = 'none';
-    if (ok) ok.classList.add('on');
-  }
-});
+// ── Отправка формы через Web3Forms (бесплатно, без перехода) ────────────────
+// Web3Forms не требует регистрации — просто укажите ваш email в access_key.
+// Получите ключ бесплатно на web3forms.com (введите export@uwitekparts.com).
+// Пока ключ не получен — форма работает в режиме mailto (запасной вариант).
 
-// Fallback: показываем при submit (на случай если JS перехватит)
-document.getElementById('cForm')?.addEventListener('submit', () => {
+document.getElementById('cFormBtn').addEventListener('click', async function() {
+  const form   = document.getElementById('cForm');
+  const btn    = document.getElementById('cFormBtn');
+  const btnTxt = document.getElementById('cFormBtnText');
+  const ok     = document.getElementById('fOk');
+
+  // Базовая валидация
+  const name  = document.getElementById('fn').value.trim();
+  const email = document.getElementById('fe').value.trim();
+  const brand = document.getElementById('fb').value;
+  const msg   = document.getElementById('fmsg').value.trim();
+
+  if (!name || !email || !brand || !msg) {
+    alert('Пожалуйста, заполните все обязательные поля (*)');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Пожалуйста, введите корректный email');
+    return;
+  }
+
+  // Показываем загрузку
+  btn.disabled = true;
+  btnTxt.textContent = 'Отправляем...';
+
+  const company = document.getElementById('fc').value.trim();
+  const model   = document.getElementById('fm').value.trim();
+
+  // ── Вариант A: Web3Forms (рекомендуется) ────────────────────────────────
+  // Замените YOUR_ACCESS_KEY на ключ с web3forms.com
+  const WEB3_KEY = 'YOUR_ACCESS_KEY';
+
+  if (WEB3_KEY !== 'YOUR_ACCESS_KEY') {
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3_KEY,
+          subject: 'Запрос запчастей с uwitekparts.com — ' + brand + ' ' + model,
+          from_name: name,
+          name, email, company, brand, model,
+          message: msg
+        })
+      });
+      const data = await res.json();
+      if (data.success) {
+        form.style.display = 'none';
+        ok.classList.add('on');
+        return;
+      }
+    } catch(e) { /* fallback ниже */ }
+  }
+
+  // ── Вариант B: mailto (запасной, открывает почтовый клиент) ─────────────
+  const body = [
+    'Имя: ' + name,
+    'Компания: ' + (company || 'не указана'),
+    'Email: ' + email,
+    '',
+    'Марка: ' + brand,
+    'Модель / S/N: ' + (model || 'не указана'),
+    '',
+    'Запрос:',
+    msg
+  ].join('\n');
+
+  const mailtoLink = 'mailto:export@uwitekparts.com'
+    + '?subject=' + encodeURIComponent('Запрос запчастей — ' + brand + ' ' + model)
+    + '&body='    + encodeURIComponent(body);
+
+  window.location.href = mailtoLink;
+
+  // Показываем сообщение успеха
   setTimeout(() => {
-    document.getElementById('fOk')?.classList.add('on');
-  }, 900);
+    form.style.display = 'none';
+    ok.classList.add('on');
+    btn.disabled = false;
+    btnTxt.textContent = 'Отправить запрос';
+  }, 500);
 });
 </script>
     
