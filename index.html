@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="format-detection" content="telephone=no">
 <meta name="theme-color" content="#0d1b2a">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPCEtLSDQpNC+0L06INGC0ZHQvNC90L4t0YHRgtCw0LvRjNC90L7QuSDRgSDQu9GR0LPQutC40Lwg0YHQutGA0YPQs9C70LXQvdC40LXQvCAtLT4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjMGQxYjJhIi8+CiAgPCEtLSDQkdGD0LrQstCwIFU6INC00LLQtSDQstC10YDRgtC40LrQsNC70YzQvdGL0LUg0YHRgtC+0LnQutC4ICsg0LTRg9Cz0LAg0YHQvdC40LfRgyAtLT4KICA8cGF0aCBkPSJNOSA3IEw5IDIwIFE5IDI2IDE2IDI2IFEyMyAyNiAyMyAyMCBMMjMgNyIgCiAgICAgICAgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTg5NTM1IiBzdHJva2Utd2lkdGg9IjMuNSIgCiAgICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPCEtLSDQr9C90YLQsNGA0L3QsNGPINGC0L7Rh9C60LAt0LDQutGG0LXQvdGCINGB0LLQtdGA0YXRgyDRgdC/0YDQsNCy0LAgLS0+CiAgPGNpcmNsZSBjeD0iMjUiIGN5PSI3IiByPSIyLjUiIGZpbGw9IiNlODk1MzUiLz4KPC9zdmc+">
-  <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+CiAgPCEtLSDQpNC+0L06INGC0ZHQvNC90L4t0YHRgtCw0LvRjNC90L7QuSDRgSDQu9GR0LPQutC40Lwg0YHQutGA0YPQs9C70LXQvdC40LXQvCAtLT4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjMGQxYjJhIi8+CiAgPCEtLSDQkdGD0LrQstCwIFU6INC00LLQtSDQstC10YDRgtC40LrQsNC70YzQvdGL0LUg0YHRgtC+0LnQutC4ICsg0LTRg9Cz0LAg0YHQvdC40LfRgyAtLT4KICA8cGF0aCBkPSJNOSA3IEw5IDIwIFE5IDI2IDE2IDI2IFEyMyAyNiAyMyAyMCBMMjMgNyIgCiAgICAgICAgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZTg5NTM1IiBzdHJva2Utd2lkdGg9IjMuNSIgCiAgICAgICAgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPCEtLSDQr9C90YLQsNGA0L3QsNGPINGC0L7Rh9C60LAt0LDQutGG0LXQvdGCINGB0LLQtdGA0YXRgyDRgdC/0YDQsNCy0LAgLS0+CiAgPGNpcmNsZSBjeD0iMjUiIGN5PSI3IiByPSIyLjUiIGZpbGw9IiNlODk1MzUiLz4KPC9zdmc+">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
 
 <!-- TITLE: 64 симв, ключевые слова на первом месте -->
 <title>Запчасти для бульдозеров Komatsu, Caterpillar, Liebherr — UWITEK</title>
@@ -292,11 +292,22 @@ address { font-style: normal }
   Лёгкая анимация "развевания" через CSS.
 */
 .logo__img {
-  width: 48px; height: 48px; flex-shrink: 0;
-  filter: drop-shadow(0 3px 8px rgba(13,27,42,.4));
+  height: 48px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 8px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(13,27,42,.35));
   transition: transform .2s;
 }
-.logo:hover .logo__img { transform: scale(1.05); }
+.logo:hover .logo__img { transform: scale(1.04); }
+
+/* Турецкий флаг SVG в шапке */
+.logo__flag {
+  width: 28px; height: 19px; flex-shrink: 0;
+  border-radius: 3px; overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
 /* flagwave removed — replaced by static logo */
 
 .logo__words { display: flex; flex-direction: column }
@@ -1004,31 +1015,12 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
           Красный фон, белый полумесяц + пятиконечная звезда.
           Анимация flagwave — лёгкое покачивание "на ветру".
         -->
-        <svg class="logo__img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="UWITEK — логотип" role="img" width="48" height="48">
-          <!-- Фон -->
-          <rect width="200" height="200" rx="32" fill="#0d2137"/>
-          <!-- Левая стойка буквы U (гусеничные звенья) -->
-          <rect x="38" y="28" width="34" height="12" rx="4" fill="#e89535"/>
-          <rect x="38" y="46" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="38" y="62" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <rect x="38" y="78" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="38" y="94" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <!-- Правая стойка буквы U (гусеничные звенья) -->
-          <rect x="128" y="28" width="34" height="12" rx="4" fill="#e89535"/>
-          <rect x="128" y="46" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="128" y="62" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <rect x="128" y="78" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="128" y="94" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <!-- Дуга снизу (нижняя часть U) -->
-          <path d="M 38 108 Q 38 168 100 168 Q 162 168 162 108" fill="none" stroke="#e89535" stroke-width="34" stroke-linecap="round"/>
-          <!-- Тёмный вырез внутри дуги для эффекта полого U -->
-          <path d="M 55 108 Q 55 150 100 150 Q 145 150 145 108" fill="none" stroke="#0d2137" stroke-width="18"/>
-          <!-- Турецкий полумесяц + звезда (маленький, правый верхний угол) -->
-          <circle cx="148" cy="34" r="14" fill="#e89535"/>
-          <circle cx="152" cy="34" r="10" fill="#0d2137"/>
-          <polygon points="158,34 159.2,37.7 163,37.7 160,39.9 161.2,43.6 158,41.4 154.8,43.6 156,39.9 153,37.7 156.8,37.7" fill="#e89535" transform="scale(0.7) translate(82 15)"/>
-          <!-- Надпись UWITEK -->
-          <text x="100" y="192" font-family="'Arial Black',Arial,sans-serif" font-size="28" font-weight="900" letter-spacing="6" text-anchor="middle" fill="#e89535">UWITEK</text>
+        <img class="logo__img" src="images/logo.jpg" alt="UWITEK логотип" width="48" height="48">
+        <svg class="logo__flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Турция" role="img">
+          <rect width="30" height="20" fill="#E30A17"/>
+          <circle cx="10" cy="10" r="6" fill="white"/>
+          <circle cx="11.6" cy="10" r="5" fill="#E30A17"/>
+          <polygon points="16.9158,8.0437 17.1317,9.4312 18.4890,9.7909 17.2361,10.4250 17.3135,11.8271 16.3233,10.8314 15.0137,11.3383 15.6547,10.0888 14.7679,9.0000 16.1543,9.2235" fill="white"/>
         </svg>
 
         <div class="logo__words">
@@ -1706,32 +1698,13 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
 
       <div class="foot__brand">
         <div class="logo" style="margin-bottom:0">
-          <svg class="logo__img" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="UWITEK — логотип" role="img" width="48" height="48">
-          <!-- Фон -->
-          <rect width="200" height="200" rx="32" fill="#0d2137"/>
-          <!-- Левая стойка буквы U (гусеничные звенья) -->
-          <rect x="38" y="28" width="34" height="12" rx="4" fill="#e89535"/>
-          <rect x="38" y="46" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="38" y="62" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <rect x="38" y="78" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="38" y="94" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <!-- Правая стойка буквы U (гусеничные звенья) -->
-          <rect x="128" y="28" width="34" height="12" rx="4" fill="#e89535"/>
-          <rect x="128" y="46" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="128" y="62" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <rect x="128" y="78" width="34" height="10" rx="4" fill="#c87820" opacity=".85"/>
-          <rect x="128" y="94" width="34" height="10" rx="4" fill="#e89535" opacity=".9"/>
-          <!-- Дуга снизу (нижняя часть U) -->
-          <path d="M 38 108 Q 38 168 100 168 Q 162 168 162 108" fill="none" stroke="#e89535" stroke-width="34" stroke-linecap="round"/>
-          <!-- Тёмный вырез внутри дуги для эффекта полого U -->
-          <path d="M 55 108 Q 55 150 100 150 Q 145 150 145 108" fill="none" stroke="#0d2137" stroke-width="18"/>
-          <!-- Турецкий полумесяц + звезда (маленький, правый верхний угол) -->
-          <circle cx="148" cy="34" r="14" fill="#e89535"/>
-          <circle cx="152" cy="34" r="10" fill="#0d2137"/>
-          <polygon points="158,34 159.2,37.7 163,37.7 160,39.9 161.2,43.6 158,41.4 154.8,43.6 156,39.9 153,37.7 156.8,37.7" fill="#e89535" transform="scale(0.7) translate(82 15)"/>
-          <!-- Надпись UWITEK -->
-          <text x="100" y="192" font-family="'Arial Black',Arial,sans-serif" font-size="28" font-weight="900" letter-spacing="6" text-anchor="middle" fill="#e89535">UWITEK</text>
-        </svg>
+          <img class="logo__img" src="images/logo.jpg" alt="UWITEK логотип" width="44" height="44">
+          <svg class="logo__flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-label="Турция" role="img">
+            <rect width="30" height="20" fill="#E30A17"/>
+            <circle cx="10" cy="10" r="6" fill="white"/>
+            <circle cx="11.6" cy="10" r="5" fill="#E30A17"/>
+            <polygon points="16.9158,8.0437 17.1317,9.4312 18.4890,9.7909 17.2361,10.4250 17.3135,11.8271 16.3233,10.8314 15.0137,11.3383 15.6547,10.0888 14.7679,9.0000 16.1543,9.2235" fill="white"/>
+          </svg>
           <div class="logo__words">
             <span class="logo__name" style="color:#fff">UWI<i style="color:var(--amber2)">TEK</i></span>
             <span class="logo__tag" style="color:rgba(255,255,255,.3)">Parts · Ankara, Turkey</span>
@@ -1767,6 +1740,12 @@ a.cmet:focus { outline: 2px solid var(--amber); outline-offset: 2px }
 
     <div class="foot__bot">
       <div class="foot__copy">
+        <svg viewBox="0 0 30 20" width="22" height="15" style="display:inline-block;vertical-align:middle;border-radius:2px;margin-right:6px;box-shadow:0 1px 3px rgba(0,0,0,.3)" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="30" height="20" fill="#E30A17"/>
+          <circle cx="10" cy="10" r="6" fill="white"/>
+          <circle cx="11.6" cy="10" r="5" fill="#E30A17"/>
+          <polygon points="16.9158,8.0437 17.1317,9.4312 18.4890,9.7909 17.2361,10.4250 17.3135,11.8271 16.3233,10.8314 15.0137,11.3383 15.6547,10.0888 14.7679,9.0000 16.1543,9.2235" fill="white"/>
+        </svg>
         © 2026 UWITEK · Запчасти для бульдозеров · Анкара, Турция
       </div>
       <div class="foot__copy">
