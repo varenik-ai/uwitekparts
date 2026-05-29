@@ -1594,5 +1594,88 @@ document.getElementById('cFormBtn').addEventListener('click', async function() {
 </script>
 <noscript><div><img src="https://mc.yandex.ru/watch/109241125" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 
+
+<noscript><div><img src="https://mc.yandex.ru/watch/109241125" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+<!-- 📊 Telegram Analytics -->
+<script>
+(function() {
+  const WORKER_URL = "https://uwitek-analytics.dyaltd.workers.dev";
+
+  function getBrowser(ua) {
+    if (/Edg/.test(ua)) return "Edge";
+    if (/Chrome/.test(ua)) return "Chrome";
+    if (/Firefox/.test(ua)) return "Firefox";
+    if (/Safari/.test(ua)) return "Safari";
+    return "Другой";
+  }
+
+  function getDevice(ua) {
+    if (/Mobi|Android/i.test(ua)) return "📱 Мобильный";
+    if (/Tablet|iPad/i.test(ua)) return "📟 Планшет";
+    return "🖥 Десктоп";
+  }
+
+  function getSearchInfo(referrer) {
+    if (!referrer) return null;
+    const engines = [
+      { name: "Яндекс",  host: "yandex.",  param: "text"  },
+      { name: "Google",  host: "google.",  param: "q"     },
+      { name: "Bing",    host: "bing.com", param: "q"     },
+      { name: "Mail.ru", host: "mail.ru",  param: "q"     },
+      { name: "Rambler", host: "rambler.", param: "query" },
+    ];
+    try {
+      const url = new URL(referrer);
+      for (const e of engines) {
+        if (url.hostname.includes(e.host)) {
+          const keyword = url.searchParams.get(e.param);
+          return { engine: e.name, keyword: keyword || "🔒 скрыто" };
+        }
+      }
+    } catch (_) {}
+    return null;
+  }
+
+  function getUtm() {
+    const p = new URLSearchParams(location.search);
+    const source = p.get("utm_source");
+    if (!source) return null;
+    return { source, term: p.get("utm_term"), medium: p.get("utm_medium") };
+  }
+
+  const sessionKey = "uwitek_logged_" + location.pathname;
+  if (sessionStorage.getItem(sessionKey)) return;
+  sessionStorage.setItem(sessionKey, "1");
+
+  const ua = navigator.userAgent;
+
+  fetch("https://ipapi.co/json/")
+    .then(r => r.json())
+    .then(geo => {
+      fetch(WORKER_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          host:     location.hostname,
+          page:     location.pathname + location.search,
+          referrer: document.referrer,
+          country:  geo.country_name || "",
+          city:     geo.city || "",
+          browser:  getBrowser(ua),
+          device:   getDevice(ua),
+          search:   getSearchInfo(document.referrer),
+          utm:      getUtm(),
+        }),
+      });
+    })
+    .catch(() => {});
+})();
+</script>
+
+</body>
+</html>
+
+  
 </body>
 </html>
